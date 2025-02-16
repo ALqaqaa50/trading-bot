@@ -1,0 +1,3 @@
+# config.py
+API_KEY = "tr3OH60ogsArutKPvdzutgpTYkKg1CG8uD94Ja7PbwwplOMFTcLZe5TYI2NePIHl"
+SECRET_KEY = "POXiRtXD8dYjAnHAgv6h6s3Gs wfpMmj0t1d5TuYCtC3m8dF7MK 6g1INeGUXLxkYc"
