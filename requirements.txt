@@ -1,0 +1,8 @@
+websocket-client
+ccxt
+flask
+requests
+pandas
+numpy
+scipy
+ta
