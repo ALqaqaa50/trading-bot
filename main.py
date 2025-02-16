@@ -1,27 +1,17 @@
-import websocket
-import json
+import ccxt
+import config  # استيراد المفاتيح من config.py
 
-def on_message(ws, message):
-    data = json.loads(message)
-    price = float(data['p'])  # استخراج سعر BTC/USDT
-    print(f"السعر الحي: {price} USDT")
+# إعداد اتصال Binance API
+exchange = ccxt.binance({
+    'apiKey': config.API_KEY,
+    'secret': config.SECRET_KEY,
+    'options': {'defaultType': 'spot'}  # للتداول الفوري
+})
 
-def on_error(ws, error):
-    print(f"خطأ في WebSocket: {error}")
-
-def on_close(ws, close_status_code, close_msg):
-    print("تم إغلاق WebSocket")
-
-def on_open(ws):
-    payload = {
-        "method": "SUBSCRIBE",
-        "params": ["btcusdt@trade"],
-        "id": 1
-    }
-    ws.send(json.dumps(payload))
-
-# فتح اتصال WebSocket مع Binance
-socket = "wss://stream.binance.com:9443/ws/btcusdt@trade"
-ws = websocket.WebSocketApp(socket, on_message=on_message, on_error=on_error, on_close=on_close)
-ws.on_open = on_open
-ws.run_forever()
+# اختبار الاتصال بـ Binance
+try:
+    balance = exchange.fetch_balance()
+    print("✅ تم الاتصال بـ Binance بنجاح!")
+    print("💰 الرصيد الحالي:", balance)
+except Exception as e:
+    print("❌ خطأ في الاتصال بـ Binance:", str(e))
