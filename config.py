@@ -1,3 +1,3 @@
 # config.py
-API_KEY = "TypslR7JRQknhMUjpoJTW09sxECBBZRHy93qxfCfQdmN45pzBrmp6TYrLNSq72h5"
-SECRET_KEY = "6DCa8Vyg4y2MVkihVqgvTtR9JJLJRGxT8yatv1N4IwDnUgvj96dTGGDByn2pDlUh"
+API_KEY = ""
+SECRET_KEY = ""
